@@ -1,5 +1,5 @@
 import sqlite3
-from colorama import Fore, Back, Style
+from colorama import Fore, Style
 
 
 def step_through_db():
@@ -17,7 +17,7 @@ def step_through_db():
     for row in rows:
         # Print the current row's details
         print(
-            f"{Fore.CYAN}UPC:{Fore.GREEN}{row[0]}{Fore.RED} | {Fore.WHITE}{Style.DIM}Title:{Style.NORMAL}{Fore.LIGHTYELLOW_EX} {row[1]}{Fore.RED} | {Fore.WHITE}{Style.DIM} URL: {row[2]} {Style.NORMAL}"
+            f"{Fore.CYAN, Style.NORMAL}UPC:{Fore.GREEN}{row[0]}{Fore.RED} | {Fore.BLUE} Title: {Fore.LIGHTYELLOW_EX} {row[1]}{Fore.RED} | {Fore.WHITE}{Style.DIM} URL:{row[2]} {Style.NORMAL}"
         )
 
         # Wait for the user to press Enter before continuing
