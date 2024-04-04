@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Elfin Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #336699;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .entry-details {
+            margin-bottom: 20px;
+        }
+
+        .rating,
+        .chili-rating {
+            unicode-bidi: bidi-override;
+            direction: ltr;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .rating>span,
+        .chili-rating>span {
+            display: inline-block;
+            position: relative;
+            width: 1.1em;
+            cursor: pointer;
+        }
+
+        .rating>span:hover:before,
+        .rating>span:hover~span:before,
+        .chili-rating>span:hover:before,
+        .chili-rating>span:hover~span:before {
+            content: "";
+            position: absolute;
+        }
+
+        .comments {
+            margin-top: 20px;
+        }
+
+        .comments h3 {
+            color: #336699;
+        }
+
+        .comments ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .comments li {
+            margin-bottom: 10px;
+        }
+
+        .comment-input {
+            margin-top: 10px;
+        }
+
+        .comment-input texta {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #336699;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #264d73;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Elfin Library</h1>
+        <div class="entry-details">
+            <pre id="result"></pre>
+            <div class="rating" id="rating">
+                <span onclick="setRating(1)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFD700">
+                        <path
+                            d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                    </svg>
+                </span>
+                <span onclick="setRating(2)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFD700">
+                        <path
+                            d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                    </svg>
+                </span>
+                <span onclick="setRating(3)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFD700">
+                        <path
+                            d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                    </svg>
+                </span>
+                <span onclick="setRating(4)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFD700">
+                        <path
+                            d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                    </svg>
+                </span>
+                <span onclick="setRating(5)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFD700">
+                        <path
+                            d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                    </svg>
+                </span>
+            </div>
+            <div class="chili-rating" id="chiliRating">
+                <span onclick="setChiliRating(1)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FF5733">
+                        <path
+                            d="M12 2c-3.9 0-7 3.1-7 7 0 2.1.9 4 2.4 5.3l-.1.7c0 1.7 1.3 3 3 3h3.5c1.7 0 3-1.3 3-3l-.1-.7c1.5-1.3 2.4-3.2 2.4-5.3 0-3.9-3.1-7-7-7zm0 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-5 5c0-.6.4-1 1-1h8c.6 0 1 .4 1 1s-.4 1-1 1H8c-.6 0-1-.4-1-1z" />
+                    </svg>
+                </span>
+                <span onclick="setChiliRating(2)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FF5733">
+                        <path
+                            d="M12 2c-3.9 0-7 3.1-7 7 0 2.1.9 4 2.4 5.3l-.1.7c0 1.7 1.3 3 3 3h3.5c1.7 0 3-1.3 3-3l-.1-.7c1.5-1.3 2.4-3.2 2.4-5.3 0-3.9-3.1-7-7-7zm0 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-5 5c0-.6.4-1 1-1h8c.6 0 1 .4 1 1s-.4 1-1 1H8c-.6 0-1-.4-1-1z" />
+                    </svg>
+                </span>
+                <span onclick="setChiliRating(3)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FF5733">
+                        <path
+                            d="M12 2c-3.9 0-7 3.1-7 7 0 2.1.9 4 2.4 5.3l-.1.7c0 1.7 1.3 3 3 3h3.5c1.7 0 3-1.3 3-3l-.1-.7c1.5-1.3 2.4-3.2 2.4-5.3 0-3.9-3.1-7-7-7zm0 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-5 5c0-.6.4-1 1-1h8c.6 0 1 .4 1 1s-.4 1-1 1H8c-.6 0-1-.4-1-1z" />
+                    </svg>
+                </span>
+                <span onclick="setChiliRating(4)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FF5733">
+                        <path
+                            d="M12 2c-3.9 0-7 3.1-7 7 0 2.1.9 4 2.4 5.3l-.1.7c0 1.7 1.3 3 3 3h3.5c1.7 0 3-1.3 3-3l-.1-.7c1.5-1.3 2.4-3.2 2.4-5.3 0-3.9-3.1-7-7-7zm0 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-5 5c0-.6.4-1 1-1h8c.6 0 1 .4 1 1s-.4 1-1 1H8c-.6 0-1-.4-1-1z" />
+                    </svg>
+                </span>
+                <span onclick="setChiliRating(5)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FF5733">
+                        <path
+                            d="M12 2c-3.9 0-7 3.1-7 7 0 2.1.9 4 2.4 5.3l-.1.7c0 1.7 1.3 3 3 3h3.5c1.7 0 3-1.3 3-3l-.1-.7c1.5-1.3 2.4-3.2 2.4-5.3 0-3.9-3.1-7-7-7zm0 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-5 5c0-.6.4-1 1-1h8c.6 0 1 .4 1 1s-.4 1-1 1H8c-.6 0-1-.4-1-1z" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+        <div class="comments">
+            <h3>Comments:</h3>
+            <ul id="comments"></ul>
+            <div class="comment-input">
+                <texta id="commentInput" rows="4" cols="50">k</texta>
+                <button class="button" onclick="addComment()">Add Comment</button>
+            </div>
+        </div>
+        <div class="navigation">
+            <button class="button" onclick="stepEntry()">Next Entry</button>
+            <button class="button" onclick="resetIndex()">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        let currentUPC = '';
+
+        function stepEntry() {
+            fetch('/step')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.upc) {
+                        currentUPC = data.upc;
+                        document.getElementById('result').textContent = `UPC: ${data.upc}\nTitle: ${data.title}\nURL: ${data.url}`;
+                        setRating(data.rating);
+                        setChiliRating(data.chiliRating);
+                        loadComments();
+                    } else {
+                        document.getElementById('result').textContent = data.message;
+                        setRating(0);
+                        setChiliRating(0);
+                        clearComments();
+                    }
+                });
+        }
+
+        function resetIndex() {
+            fetch('/reset')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('result').textContent = data;
+                    setRating(0);
+                    setChiliRating(0);
+                    clearComments();
+                });
+        }
+
+        function setRating(rating) {
+            const stars = document.getElementById('rating').children;
+            for (let i = 0; i < stars.length; i++) {
+                stars[i].querySelector('svg').setAttribute('fill', i < rating ? '#FFD700' : '#000');
+            }
+        }
+
+        function saveRating(rating) {
+            fetch('/rating', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ upc: currentUPC, rating: rating })
+            });
+        }
+
+        function setChiliRating(rating) {
+            const chilis = document.getElementById('chiliRating').children;
+            for (let i = 0; i < chilis.length; i++) {
+                chilis[i].querySelector('svg').setAttribute('fill', i < rating ? '#FF5733' : '#000');
+            }
+        }
+
+        function saveChiliRating(rating) {
+            fetch('/chili-rating', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ upc: currentUPC, rating: rating })
+            });
+        }
+
+        function loadComments() {
+            fetch(`/comments?upc=${currentUPC}`)
+                .then(response => response.json())
+                .then(data => {
+                    const commentsList = document.getElementById('comments');
+                    commentsList.innerHTML = '';
+                    data.forEach(comment => {
+                        const li = document.createElement('li');
+                        li.textContent = comment;
+                        commentsList.appendChild(li);
+                    });
+                });
+        }
+
+        function addComment() {
+            const commentInput = document.getElementById('commentInput');
+            const comment = commentInput.value.trim();
+            if (comment !== '') {
+                fetch('/comments', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ upc: currentUPC, comment: comment })
+                })
+                    .then(() => {
+                        commentInput.value = '';
+                        loadComments();
+                    });
+            }
+        }
+        function clearComments() {
+            document.getElementById('comments').innerHTML = '';
+            document.getElementById('commentInput').value = '';
+        }
+
+        document.getElementById('rating').addEventListener('click', function (event) {
+            if (event.target.tagName === 'svg' || event.target.tagName === 'path') {
+                const rating = Array.from(this.children).indexOf(event.target.closest('span')) + 1;
+                saveRating(rating);
+            }
+        });
+
+        document.getElementById('chiliRating').addEventListener('click', function (event) {
+            if (event.target.tagName === 'svg' || event.target.tagName === 'path') {
+                const rating = Array.from(this.children).indexOf(event.target.closest('span')) + 1;
+                saveChiliRating(rating);
+            }
+        });
+    </script>
+    <path
+        d="M12 2c-3.9 0-7 3.1-7 7 0 2.1.9 4 2.4 5.3l-.1.7c0 1.7 1.3 3 3 3h3.5c1.7 0 3-1.3 3-3l-.1-.7c1.5-1.3 2.4-3.2 2.4-5.3 0-3.9-3.1-7-7-7zm0 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-5 5c0-.6.4-1 1-1h8c.6 0 1 .4 1 1s-.4 1-1 1H8c-.6 0-1-.4-1-1z" />
